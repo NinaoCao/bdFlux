@@ -1,0 +1,45 @@
+===Banco de dados sistema_flux
+
+== Estrutura para tabela historico_aparelhos
+
+|------
+|Coluna|Tipo|Nulo|Padrão
+|------
+|//**id**//|int(11)|Não|
+|aparelho|varchar(100)|Sim|NULL
+|tensao|double|Sim|NULL
+|corrente|double|Sim|NULL
+|condicao|varchar(50)|Sim|NULL
+|data|datetime|Sim|NULL
+== Despejando dados para a tabela historico_aparelhos
+
+|1|Geladeira|0.84|25.2|Risco|2025-06-27 16:03:28
+== Estrutura para tabela leituras
+
+|------
+|Coluna|Tipo|Nulo|Padrão
+|------
+|//**id**//|int(11)|Não|
+|tensao|double|Sim|NULL
+|corrente|double|Sim|NULL
+|data|datetime|Sim|current_timestamp()
+== Despejando dados para a tabela leituras
+
+|1|0.84|25.2|2025-06-26 18:35:36
+== Estrutura para tabela usuarios
+
+|------
+|Coluna|Tipo|Nulo|Padrão
+|------
+|//**id**//|int(11)|Não|
+|nome|varchar(100)|Sim|NULL
+|email|varchar(100)|Sim|NULL
+|senha|varchar(100)|Sim|NULL
+== Despejando dados para a tabela usuarios
+
+|1|asdasd|asdasdasd|asdasdsa
+|2|Nicolas|qaw@gmail.com|123
+|3|adasdsd|asd@gmail.com|123
+|4|Alan|123|123
+|5|2|2|2
+|6|1|1|1
