@@ -1,0 +1,76 @@
+===Base de Dados sistema_flux
+
+== Estrutura da tabela aparelhos_config
+
+|------
+|Coluna|Tipo|Nulo|Predefinido
+|------
+|//**id**//|int(11)|Não|
+|nome|varchar(100)|Não|
+|tensao_min|double|Não|
+|tensao_max|double|Não|
+|corrente_min|double|Não|
+|corrente_max|double|Não|
+== Extraindo dados da tabela aparelhos_config
+
+|1|Geladeira|110|130|1|2
+|2|Micro-ondas|110|130|5|10
+|3|Ar-condicionado|200|240|8|15
+|4|Televisão|90|130|0.5|1.5
+|5|Ventilador|90|130|0.2|0.7
+== Estrutura da tabela historico_aparelhos
+
+|------
+|Coluna|Tipo|Nulo|Predefinido
+|------
+|//**id**//|int(11)|Não|
+|aparelho|varchar(100)|Sim|NULL
+|tensao|double|Sim|NULL
+|corrente|double|Sim|NULL
+|condicao|varchar(50)|Sim|NULL
+|data|datetime|Sim|NULL
+|alerta_grave|tinyint(1)|Sim|0
+== Extraindo dados da tabela historico_aparelhos
+
+|1|Geladeira|0.84|25.2|Risco|2025-06-27 16:03:28|0
+|2|Ar-condicionado|0.84|25.2|Risco|2025-07-22 14:37:37|0
+|3|Televisão|0.84|25.2|Risco|2025-07-22 15:45:26|0
+|4|Cafeteira|0.84|25.2|Risco|2025-07-22 15:45:30|0
+|5|Cafeteira|0.84|25.2|Risco|2025-07-22 15:45:37|0
+|6|Ventilador|0.8400000000000001|25.199999999999996|Risco|2025-07-30 14:17:25|0
+|100|Ventilador|0.8400000000000001|25.199999999999996|Risco|2025-07-30 14:53:36|0
+|101|Micro-ondas|0.8400000000000001|25.199999999999996|Risco|2025-07-30 14:53:55|0
+|102|Micro-ondas|0.8400000000000001|25.199999999999996|Risco|2025-07-30 15:36:55|0
+|103|Ventilador|0.8400000000000001|25.199999999999996|Risco|2025-07-30 15:37:58|0
+|104|Micro-ondas|0.8400000000000001|25.199999999999996|Risco|2025-07-30 15:44:55|0
+|105|Televisão|0.8400000000000001|25.199999999999996|Risco|2025-07-30 16:06:22|0
+== Estrutura da tabela leituras
+
+|------
+|Coluna|Tipo|Nulo|Predefinido
+|------
+|//**id**//|int(11)|Não|
+|tensao|double|Sim|NULL
+|corrente|double|Sim|NULL
+|data|datetime|Sim|current_timestamp()
+== Extraindo dados da tabela leituras
+
+|1|0.84|25.2|2025-06-26 18:35:36
+== Estrutura da tabela usuarios
+
+|------
+|Coluna|Tipo|Nulo|Predefinido
+|------
+|//**id**//|int(11)|Não|
+|nome|varchar(100)|Sim|NULL
+|email|varchar(100)|Sim|NULL
+|senha|varchar(100)|Sim|NULL
+== Extraindo dados da tabela usuarios
+
+|0|Nicolas|ribeiro@gmail.com|123456
+|1|asdasd|asdasdasd|asdasdsa
+|2|Nicolas|qaw@gmail.com|123
+|3|adasdsd|asd@gmail.com|123
+|4|Alan|123|123
+|5|2|2|2
+|6|1|1|1
