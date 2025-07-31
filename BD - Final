@@ -1,0 +1,85 @@
+-- Criação do banco de dados
+CREATE DATABASE IF NOT EXISTS sistema_flux;
+USE sistema_flux;
+
+-- Tabela: aparelhos_config
+DROP TABLE IF EXISTS aparelhos_config;
+CREATE TABLE aparelhos_config (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    tensao_min DOUBLE NOT NULL,
+    tensao_max DOUBLE NOT NULL,
+    corrente_min DOUBLE NOT NULL,
+    corrente_max DOUBLE NOT NULL,
+    PRIMARY KEY (id)
+);
+
+-- Dados da tabela: aparelhos_config
+INSERT INTO aparelhos_config (nome, tensao_min, tensao_max, corrente_min, corrente_max) VALUES
+('Geladeira', 110, 130, 1, 2),
+('Micro-ondas', 110, 130, 5, 10),
+('Ar-condicionado', 200, 240, 8, 15),
+('Televisão', 90, 130, 0.5, 1.5),
+('Ventilador', 90, 130, 0.2, 0.7);
+
+-- Tabela: historico_aparelhos
+DROP TABLE IF EXISTS historico_aparelhos;
+CREATE TABLE historico_aparelhos (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    aparelho VARCHAR(100) DEFAULT NULL,
+    tensao DOUBLE DEFAULT NULL,
+    corrente DOUBLE DEFAULT NULL,
+    condicao VARCHAR(50) DEFAULT NULL,
+    data DATETIME DEFAULT NULL,
+    alerta_grave TINYINT(1) DEFAULT 0,
+    PRIMARY KEY (id)
+);
+
+-- Dados da tabela: historico_aparelhos
+INSERT INTO historico_aparelhos (aparelho, tensao, corrente, condicao, data, alerta_grave) VALUES
+('Geladeira', 0.84, 25.2, 'Risco', '2025-06-27 16:03:28', 0),
+('Ar-condicionado', 0.84, 25.2, 'Risco', '2025-07-22 14:37:37', 0),
+('Televisão', 0.84, 25.2, 'Risco', '2025-07-22 15:45:26', 0),
+('Cafeteira', 0.84, 25.2, 'Risco', '2025-07-22 15:45:30', 0),
+('Cafeteira', 0.84, 25.2, 'Risco', '2025-07-22 15:45:37', 0),
+('Ventilador', 0.8400000000000001, 25.199999999999996, 'Risco', '2025-07-30 14:17:25', 0),
+('Ventilador', 0.8400000000000001, 25.199999999999996, 'Risco', '2025-07-30 14:53:36', 0),
+('Micro-ondas', 0.8400000000000001, 25.199999999999996, 'Risco', '2025-07-30 14:53:55', 0),
+('Micro-ondas', 0.8400000000000001, 25.199999999999996, 'Risco', '2025-07-30 15:36:55', 0),
+('Ventilador', 0.8400000000000001, 25.199999999999996, 'Risco', '2025-07-30 15:37:58', 0),
+('Micro-ondas', 0.8400000000000001, 25.199999999999996, 'Risco', '2025-07-30 15:44:55', 0),
+('Televisão', 0.8400000000000001, 25.199999999999996, 'Risco', '2025-07-30 16:06:22', 0);
+
+-- Tabela: leituras
+DROP TABLE IF EXISTS leituras;
+CREATE TABLE leituras (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    tensao DOUBLE DEFAULT NULL,
+    corrente DOUBLE DEFAULT NULL,
+    data DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+-- Dados da tabela: leituras
+INSERT INTO leituras (tensao, corrente, data) VALUES
+(0.84, 25.2, '2025-06-26 18:35:36');
+
+-- Tabela: usuarios
+DROP TABLE IF EXISTS usuarios;
+CREATE TABLE usuarios (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) DEFAULT NULL,
+    email VARCHAR(100) DEFAULT NULL,
+    senha VARCHAR(100) DEFAULT NULL,
+    PRIMARY KEY (id)
+);
+
+-- Dados da tabela: usuarios
+INSERT INTO usuarios (nome, email, senha) VALUES
+('Nicolas', 'ribeiro@gmail.com', '123456'),
+('asdasd', 'asdasdasd', 'asdasdsa'),
+('Nicolas', 'qaw@gmail.com', '123'),
+('adasdsd', 'asd@gmail.com', '123'),
+('Alan', '123', '123'),
+('2', '2', '2'),
+('1', '1', '1');
